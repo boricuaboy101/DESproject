@@ -2,7 +2,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
 
-public class question3multithreaded implements Runnable {
+public class question4multithreaded {
 	static int x=1;
 	Boolean solutionFound=false;
 	
@@ -49,32 +49,32 @@ public class question3multithreaded implements Runnable {
 	        byte [] keyBytest1;
 	        byte [] ptt1;
 	        byte [] ctt1;
-	        keyBytest1 = new byte [] {(byte) 0x01, (byte) 0x23, (byte) 0x45, (byte) 0x67, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
-	        ctt1 = new byte [] {(byte) 0x20, (byte) 0xAD, (byte) 0xFD, (byte) 0xBF, (byte) 0x1B, (byte) 0xB6, (byte) 0x9F, (byte) 0x4B};
+	        keyBytest1 = new byte [] {(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x17, (byte) 0x2D, (byte) 0x00};
+	        ctt1 = new byte [] {(byte) 0x1B, (byte) 0xC7, (byte) 0x48, (byte) 0x96, (byte) 0x6D, (byte) 0xCD, (byte) 0xDF, (byte) 0x3C};
 	        int countert1 = 1;
 	        int counter2t1 = 0;
 	        //Thread Two Variables
 	        byte [] keyBytest2;
 	        byte [] ptt2;
 	        byte [] ctt2;
-	        keyBytest2 = new byte [] {(byte) 0x01, (byte) 0x23, (byte) 0x45, (byte) 0x67, (byte) 0x7F, (byte) 0x7F, (byte) 0x7F, (byte) 0x7F};
-	        ctt2 = new byte [] {(byte) 0x20, (byte) 0xAD, (byte) 0xFD, (byte) 0xBF, (byte) 0x1B, (byte) 0xB6, (byte) 0x9F, (byte) 0x4B};
+	        keyBytest2 = new byte [] {(byte) 0x7F, (byte) 0x7F,  (byte) 0x7F,  (byte) 0x7F,  (byte) 0x7F, (byte) 0x17, (byte) 0x2D, (byte) 0x00};
+	        ctt2 = new byte [] {(byte) 0x1B, (byte) 0xC7, (byte) 0x48, (byte) 0x96, (byte) 0x6D, (byte) 0xCD, (byte) 0xDF, (byte) 0x3C};
 	        int countert2 = 1;
 	        int counter2t2 = 0;
 	        //Thread Three Variables
 	        byte [] keyBytest3;
 	        byte [] ptt3;
 	        byte [] ctt3;
-	        keyBytest3 = new byte [] {(byte) 0x01, (byte) 0x23, (byte) 0x45, (byte) 0x67, (byte) 0x7F, (byte) 0x7F, (byte) 0x7F, (byte) 0x7F};
-	        ctt3 = new byte [] {(byte) 0x20, (byte) 0xAD, (byte) 0xFD, (byte) 0xBF, (byte) 0x1B, (byte) 0xB6, (byte) 0x9F, (byte) 0x4B};
+	        keyBytest3 = new byte [] {(byte) 0x7F, (byte) 0x7F,  (byte) 0x7F,  (byte) 0x7F,  (byte) 0x7F, (byte) 0x17, (byte) 0x2D, (byte) 0x00};
+	        ctt3 = new byte [] {(byte) 0x1B, (byte) 0xC7, (byte) 0x48, (byte) 0x96, (byte) 0x6D, (byte) 0xCD, (byte) 0xDF, (byte) 0x3C};
 	        int countert3 = 1;
 	        int counter2t3 = 0;
 	        //Thread Four Variables
 	        byte [] keyBytest4;
 	        byte [] ptt4;
 	        byte [] ctt4;
-	        keyBytest4 = new byte [] {(byte) 0x01, (byte) 0x23, (byte) 0x45, (byte) 0x67, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
-	        ctt4 = new byte [] {(byte) 0x20, (byte) 0xAD, (byte) 0xFD, (byte) 0xBF, (byte) 0x1B, (byte) 0xB6, (byte) 0x9F, (byte) 0x4B};
+	        keyBytest4 = new byte [] {(byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0x17, (byte) 0x2D, (byte) 0x00};
+	        ctt4 = new byte [] {(byte) 0x1B, (byte) 0xC7, (byte) 0x48, (byte) 0x96, (byte) 0x6D, (byte) 0xCD, (byte) 0xDF, (byte) 0x3C};
 	        int countert4 = 1;
 	        int counter2t4 = 0;
 		
@@ -84,12 +84,12 @@ public class question3multithreaded implements Runnable {
 		
 		switch (x){
 		case 1:  try{
-        	
+        for(int m=0; m < 256; m++){	
         for(int i = 0; i < 256; i++)
         {
         	cipher = Cipher.getInstance("DES/ECB/NoPadding");
             countert1 = 1;
-            System.out.println("Byte 4 incremented "+counter2t1+" times");
+            System.out.println("Byte 1 incremented "+counter2t1+" times");
             for (int j = 0; j < 256; j++)
             {
             	if (countert1 % 50 == 0)
@@ -110,7 +110,7 @@ public class question3multithreaded implements Runnable {
                             ptt1 = cipher.doFinal(ctt1);
                            
                         
-                            if (new String(ptt1).equals("Plaintxt"))
+                            if (new String(ptt1).equals("of Riedl"))
                             {
                                 printByteArray(ptt1);
                                 solutionFound=true;
@@ -120,15 +120,17 @@ public class question3multithreaded implements Runnable {
                             }
                         
 
-                        keyBytest1[4] = (byte) (keyBytest1[4] + 1);
+                        keyBytest1[0] = (byte) (keyBytest1[0] + 1);
                     }
-                    keyBytest1[5] = (byte) (keyBytest1[5] + 1);
+                    keyBytest1[1] = (byte) (keyBytest1[1] + 1);
                 }
-                keyBytest1[6] = (byte) (keyBytest1[6] + 1);
+                keyBytest1[2] = (byte) (keyBytest1[2] + 1);
                 countert1++;
             }
-            keyBytest1[7] = (byte) (keyBytest1[7] + 1);
+            keyBytest1[3] = (byte) (keyBytest1[3] + 1);
            counter2t1++;
+        }
+        keyBytest1[4] = (byte) (keyBytest1[4] + 1);
         }
        //delimits last for loop
     }
@@ -137,12 +139,12 @@ public class question3multithreaded implements Runnable {
                             e.printStackTrace();
                         }break;
 		case 2:try{
-        	
+		for(int m=0; m < 256; m++){		
         for(int i = 0; i < 256; i++)
         {
         	cipher = Cipher.getInstance("DES/ECB/NoPadding");
             countert2 = 1;
-            System.out.println("Byte 4 incremented "+counter2t2+" times");
+            System.out.println("Byte 1 incremented "+counter2t2+" times");
             for (int j = 0; j < 256; j++)
             {
             	if (countert2 % 50 == 0)
@@ -163,7 +165,7 @@ public class question3multithreaded implements Runnable {
                             ptt2 = cipher.doFinal(ctt2);
                            
                         
-                            if (new String(ptt2).equals("Plaintxt"))
+                            if (new String(ptt2).equals("of Riedl"))
                             {
                                 printByteArray(ptt2);
                                 solutionFound=true;
@@ -173,16 +175,18 @@ public class question3multithreaded implements Runnable {
                             }
                         
 
-                        keyBytest2[4] = (byte) (keyBytest2[4] - 1);
+                        keyBytest2[0] = (byte) (keyBytest2[0] - 1);
                     }
-                    keyBytest2[5] = (byte) (keyBytest2[5] - 1);
+                    keyBytest2[1] = (byte) (keyBytest2[1] - 1);
                 }
-                keyBytest2[6] = (byte) (keyBytest2[6] - 1);
+                keyBytest2[2] = (byte) (keyBytest2[2] - 1);
                 countert2++;
             }
-            keyBytest2[7] = (byte) (keyBytest2[7] - 1);
+            keyBytest2[3] = (byte) (keyBytest2[3] - 1);
            counter2t2++;
         }
+        keyBytest2[4] = (byte) (keyBytest2[4] - 1);
+		}
        //delimits last for loop
     }
     catch(Exception e)
@@ -190,12 +194,12 @@ public class question3multithreaded implements Runnable {
                             e.printStackTrace();
                         }break;
 		case 3: try{
-        	
+		for(int m=0; m < 256; m++){		
         for(int i = 0; i < 256; i++)
         {
         	cipher = Cipher.getInstance("DES/ECB/NoPadding");
             countert3 = 1;
-            System.out.println("Byte 4 incremented "+counter2t3+" times");
+            System.out.println("Byte 1 incremented "+counter2t3+" times");
             for (int j = 0; j < 256; j++)
             {
             	if (countert3 % 50 == 0)
@@ -216,7 +220,7 @@ public class question3multithreaded implements Runnable {
                             ptt3 = cipher.doFinal(ctt3);
                            
                         
-                            if (new String(ptt3).equals("Plaintxt"))
+                            if (new String(ptt3).equals("of Riedl"))
                             {
                                 printByteArray(ptt3);
                                 solutionFound=true;
@@ -226,16 +230,18 @@ public class question3multithreaded implements Runnable {
                             }
                         
 
-                        keyBytest3[4] = (byte) (keyBytest3[4] + 1);
+                        keyBytest3[0] = (byte) (keyBytest3[0] + 1);
                     }
-                    keyBytest3[5] = (byte) (keyBytest3[5] + 1);
+                    keyBytest3[1] = (byte) (keyBytest3[1] + 1);
                 }
-                keyBytest3[6] = (byte) (keyBytest3[6] + 1);
+                keyBytest3[2] = (byte) (keyBytest3[2] + 1);
                 countert3++;
             }
-            keyBytest3[7] = (byte) (keyBytest3[7] + 1);
+            keyBytest3[3] = (byte) (keyBytest3[3] + 1);
            counter2t3++;
         }
+        keyBytest3[4] = (byte) (keyBytest3[4] + 1);
+		}
        //delimits last for loop
     }
     catch(Exception e)
@@ -243,7 +249,7 @@ public class question3multithreaded implements Runnable {
                             e.printStackTrace();
                         }break;
 	case 4: try{
-    	
+	for(int m=0; m < 256; m++){		  	
     for(int i = 0; i < 256; i++)
     {
     	cipher = Cipher.getInstance("DES/ECB/NoPadding");
@@ -269,7 +275,7 @@ public class question3multithreaded implements Runnable {
                         ptt4 = cipher.doFinal(ctt4);
                        
                     
-                        if (new String(ptt4).equals("Plaintxt"))
+                        if (new String(ptt4).equals("of Reidl"))
                         {
                         	solutionFound=true;
                             printByteArray(ptt4);
@@ -279,16 +285,18 @@ public class question3multithreaded implements Runnable {
                         }
                     
 
-                    keyBytest4[4] = (byte) (keyBytest4[4] - 1);
+                    keyBytest4[0] = (byte) (keyBytest4[0] - 1);
                 }
-                keyBytest4[5] = (byte) (keyBytest4[5] - 1);
+                keyBytest4[1] = (byte) (keyBytest4[1] - 1);
             }
-            keyBytest4[6] = (byte) (keyBytest4[6] - 1);
+            keyBytest4[2] = (byte) (keyBytest4[2] - 1);
             countert4++;
         }
-        keyBytest4[7] = (byte) (keyBytest4[7] - 1);
+        keyBytest4[3] = (byte) (keyBytest4[3] - 1);
        counter2t4++;
     }
+    keyBytest3[4] = (byte) (keyBytest3[4] - 1);
+	}
    //delimits last for loop
 }
 catch(Exception e)
@@ -299,7 +307,6 @@ catch(Exception e)
 		
 	}
 
-	@Override
 	public void run() {
 		// TODO Auto-generated method stub
 		threadChoice(x);
@@ -318,7 +325,3 @@ catch(Exception e)
 		(new Thread(new question3multithreaded())).start();
 	}
 }
-	
-	
-
-
