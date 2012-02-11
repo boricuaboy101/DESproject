@@ -2,7 +2,8 @@ import java.io.Console;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-
+//Joshua Rolon
+//Sam Harlan
 
 public class question4multithreaded implements Runnable{
 	static int x=1;

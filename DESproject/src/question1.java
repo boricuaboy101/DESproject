@@ -1,12 +1,10 @@
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+public class question1 {
 //Joshua Rolon
 //Sam Harlan
-
-public class question2 {
 	public static void printByteArray(byte [] array)
     {
-		System.out.print("Plain Text Hex Format: ");
         System.out.print("[");
         for(int i = 0; i < array.length-1; i++)
         {
@@ -15,12 +13,6 @@ public class question2 {
         }
         System.out.print(Integer.toHexString(array[array.length-1]>>4&0x0F).toUpperCase());
         System.out.println(Integer.toHexString(array[array.length-1]&0x0F).toUpperCase() + "]");
-        String str = new String(array); 
-        System.out.println("Plain Text Readable: "+str);
-    }
-	public static String byteArrayToString(byte [] array)
-    {
-		return new String(array);
     }
 
 	public static void main (String [] args)
@@ -32,25 +24,23 @@ public class question2 {
 		byte [] pt;
 		byte [] ct;
 
-
 		keyBytes  = new byte[] {(byte) 0xFF, (byte) 0x11, (byte) 0xEE, (byte) 0x22, (byte) 0xDD, (byte) 0x33, (byte) 0xCC, (byte) 0x44};
-		
-		ct = new byte[] {(byte) 0x13, (byte) 0x75, (byte) 0x58, (byte) 0x17, (byte) 0xF9, (byte) 0xBE, (byte) 0x80, (byte) 0x1D};
-		
+		pt = new byte[] {(byte) 0x01, (byte) 0x23, (byte) 0x45, (byte) 0x67, (byte) 0x89, (byte) 0xAB, (byte) 0xCD, (byte) 0xEF};
+
 		key = new SecretKeySpec(keyBytes, "DES");
 
 		try
 		{
 			cipher = Cipher.getInstance("DES/ECB/NoPadding");
-			cipher.init(Cipher.DECRYPT_MODE, key);
-			pt = cipher.doFinal(ct);
-			printByteArray(pt);
+			cipher.init(Cipher.ENCRYPT_MODE, key);
+			ct = cipher.doFinal(pt);
+			printByteArray(ct);
 
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
+		//[F4, 43, F8, 88, D0, D2, 78, A7]
 	}
-
 }

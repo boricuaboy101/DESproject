@@ -1,6 +1,7 @@
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-
+//Joshua Rolon
+//Sam Harlan
 
 public class question3multithreaded implements Runnable {
 	static int x=1;
